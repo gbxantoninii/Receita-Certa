@@ -1,11 +1,11 @@
 {
-    "name": "flutter_application_1",
-    "short_name": "flutter_application_1",
+    "name": "Receita Certa",
+    "short_name": "Receita Certa",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#323232",
+    "theme_color": "#41090F",
+    "description": "Escaneou, entendeu, cuidou.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
