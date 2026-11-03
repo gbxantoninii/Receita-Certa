@@ -155,7 +155,7 @@ class AuthStore {
 
   String? trocarSenha(String email, String atual, String nova) {
     if (!_senhas.containsKey(email)) {
-      return 'Sua conta usa login com Apple ou Google. Não há senha para trocar.';
+      return 'Não encontramos uma conta com esse e-mail.';
     }
     if (_senhas[email] != atual) return 'A senha atual está incorreta.';
     _senhas[email] = nova;
@@ -688,33 +688,6 @@ class _AuthPageState extends State<AuthPage> {
                         _BotaoPrimario(
                             texto: _cadastro ? 'Criar conta' : 'Entrar',
                             onTap: _enviar),
-                        const SizedBox(height: 18),
-                        Row(children: [
-                          Expanded(child: Divider(color: c.borda)),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Text('ou continue com',
-                                style:
-                                    TextStyle(color: c.texto3, fontSize: 11.5)),
-                          ),
-                          Expanded(child: Divider(color: c.borda)),
-                        ]),
-                        const SizedBox(height: 14),
-                        Row(children: [
-                          Expanded(
-                              child: _social(c, 'Apple',
-                                  const Icon(Icons.apple, size: 20))),
-                          const SizedBox(width: 8),
-                          Expanded(
-                              child: _social(
-                                  c,
-                                  'Google',
-                                  const Text('G',
-                                      style: TextStyle(
-                                          color: Color(0xFF4285F4),
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold)))),
-                        ]),
                         if (!_cadastro) ...[
                           const SizedBox(height: 18),
                           Center(
@@ -849,31 +822,6 @@ class _AuthPageState extends State<AuthPage> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _social(Cores c, String texto, Widget icone) {
-    return SizedBox(
-      height: 46,
-      child: OutlinedButton(
-        // Login social simulado: entra direto. Troque por Sign in with Apple/Google reais depois.
-        onPressed: _irParaApp,
-        style: OutlinedButton.styleFrom(
-          foregroundColor: c.texto,
-          side: BorderSide(color: c.borda.withValues(alpha: .4)),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            icone,
-            const SizedBox(width: 8),
-            Text(texto,
-                style:
-                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-          ],
-        ),
-      ),
     );
   }
 }
@@ -1077,6 +1025,10 @@ class _MenuLateralState extends State<MenuLateral> {
                 onTap: () => _ir(const SalvasPage()),
               ),
             ),
+            _MenuItem(
+                icone: Icons.groups_outlined,
+                texto: 'Nossa equipe',
+                onTap: () => _ir(const EquipePage())),
             _MenuItem(
                 icone: Icons.feedback,
                 texto: 'Deixe o seu feedback!',
@@ -2077,7 +2029,7 @@ class Faq {
 
 const List<Faq> _faqs = [
   Faq('Conta', 'Como crio minha conta?',
-      'Na tela inicial, toque em "Cadastre-se", escolha um nome de usuário, informe e-mail e senha e aceite os Termos. Você também pode entrar com Apple ou Google.'),
+      'Na tela inicial, toque em "Cadastre-se", escolha um nome de usuário, informe e-mail e senha e aceite os Termos.'),
   Faq('Conta', 'Esqueci minha senha. E agora?',
       'Na tela de entrada, toque em "Esqueci minha senha", informe seu e-mail e siga as instruções que enviaremos.'),
   Faq('Receitas', 'Como escaneio minha receita?',
@@ -2879,7 +2831,7 @@ class Guia {
 
 const List<Guia> _guias = [
   Guia(Icons.rocket_launch_outlined, 'Primeiros passos', [
-    'Crie sua conta ou entre com Apple ou Google.',
+    'Crie sua conta ou entre com seu e-mail e senha.',
     'Explore as abas Destaques e Recentes para ver as promoções.',
     'Toque em "Ver mais" para conhecer o medicamento, os avisos e os preços.',
     'Ative os lembretes para não esquecer seus horários.',
@@ -3192,4 +3144,3 @@ const Documento docComunidade = Documento(
         'Conteúdos que violarem as regras serão removidos. Repetir a infração pode levar à suspensão ou ao encerramento da conta.'),
   ],
 );
-

@@ -112,9 +112,9 @@ class _TelaReceita extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-              top: -38, left: -38, child: LoginPage._decorativeCircle(105)),
+              top: -38, left: -38, child: _decorativeCircle(105)),
           Positioned(
-              right: -50, bottom: -42, child: LoginPage._decorativeCircle(130)),
+              right: -50, bottom: -42, child: _decorativeCircle(130)),
           Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 410),

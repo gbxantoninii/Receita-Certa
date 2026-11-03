@@ -1231,5 +1231,4 @@ const String telefoneSuporte = '(11) 4000-0000';
 /// Tela para onde o usuário vai depois de entrar/cadastrar.
 /// Hoje é a tela inicial antiga (LoginPage). Para ir direto à home,
 /// troque por: const HomePage()
-Widget telaAposLogin() => const LoginPage();
-
+Widget telaAposLogin() => const HomePage();
